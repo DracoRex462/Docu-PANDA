@@ -1,0 +1,530 @@
+\documentclass{article}
+
+% --------------------
+% Encoding & Language
+% --------------------
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+
+% --------------------
+% Layout
+% --------------------
+\usepackage[a4paper,margin=1in]{geometry}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+
+% --------------------
+% Colors & Design
+% --------------------
+\usepackage{xcolor}
+\usepackage{media9}
+\definecolor{mainblue}{HTML}{0B1F3A}
+\definecolor{lightgray}{HTML}{F2F4F7}
+\definecolor{myred}{RGB}{180,0,0}
+\definecolor{mygreen}{RGB}{0,140,0}
+\definecolor{myblue}{RGB}{0,70,180}
+\definecolor{mypurple}{RGB}{90,0,120}
+\definecolor{myyellow}{RGB}{200,160,0}
+% --------------------
+% Links
+% --------------------
+\usepackage[hidelinks]{hyperref}
+
+% --------------------
+% Tables
+% --------------------
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{array}
+
+% --------------------
+% Graphics
+% --------------------
+\usepackage{graphicx}
+\usepackage{float}
+
+% --------------------
+% Math / Science
+% --------------------
+\usepackage{amsmath}
+
+% --------------------
+% Lists
+% --------------------
+\usepackage{enumitem}
+
+% --------------------
+% Fancy Boxes
+% --------------------
+\usepackage[most]{tcolorbox}
+
+\newtcolorbox{infobox}{
+colback=lightgray,
+colframe=mainblue,
+title=Info,
+fonttitle=\bfseries
+}
+
+\newtcolorbox{warningbox}{
+colback=red!5,
+colframe=red!60!black,
+title=Warnung,
+fonttitle=\bfseries
+}
+
+% --------------------
+% Section Design
+% --------------------
+\usepackage{titlesec}
+
+\titleformat{\section}
+{\Large\bfseries\color{mainblue}}
+{\thesection}{1em}{}
+
+\titleformat{\subsection}
+{\large\bfseries}
+{\thesubsection}{1em}{}
+
+\usepackage{enumitem}
+\newcommand{\fatdash}{\color{mainblue}\rule[0.5ex]{0.8em}{1.2pt}}
+\setlist[itemize]{
+    label=\fatdash,
+    leftmargin=1.5em
+}
+
+\begin{document}
+
+% Header section with logo and title
+\noindent
+\begin{minipage}{0.2\textwidth}
+    \includegraphics[width=\textwidth]{bulme.png}
+\end{minipage}
+\hfill
+\begin{minipage}{0.8\textwidth}
+    \centering
+    \textbf{Höhere Technische Bundes- Lehr- und Versuchsanstalt, Graz-Gösting\\
+    Abteilung für Elektronik und technische Informatik}
+\end{minipage}
+
+\vspace{0.8cm}
+
+\begin{center}
+    \textbf{\LARGE Labor – Protokoll}
+\end{center}
+
+\setlength{\arrayrulewidth}{0.5pt}
+\setlength{\tabcolsep}{8pt}
+\renewcommand{\arraystretch}{1.7}
+
+% Custom thick line
+\newcommand{\thickhline}{\noalign{\hrule height 1pt}}
+
+\begin{center}
+% Tabelle mit einzelnen Zeilen für jede Info
+\begin{tabularx}{\textwidth}{|X|}
+\hline
+\textbf{Gruppenmitglieder:} 
+    \begin{itemize}
+        \item Christopher Schieszler
+        \item Noah Hainisch
+        \item Nicolas Scherrer
+        \item Sonja Schönauer
+        \item Daniel Schranzhofer
+        \item Adam Bukovjan
+    \end{itemize} \\ \hline
+\textbf{Klasse:} 4BHEL, 4CHEL  \\ \hline
+\end{tabularx}
+
+\vspace{0.6cm}
+
+% Zweite Tabelle mit Übungsdaten
+\begin{tabularx}{\textwidth}{|X|}
+\hline
+\textbf{Arbeitsbeginn:} 26.02.2026 \\ \hline
+\textbf{Abgabetag:} 11.06.2026 \\ \hline
+\textbf{Betreut von:} Prof. DI DI Michelitsch \\ \hline
+\end{tabularx}
+\end{center}
+
+\vspace{3cm}
+\noindent\hrulefill\\
+    \begin{center}
+         {\LARGE \textbf{MoveMed}} \\
+    \end{center}
+\noindent\hrulefill\\
+
+\vspace{0.6cm}
+
+\newpage
+\tableofcontents
+
+\newpage
+\section{Aufgabenverteilung}
+
+\subsection{Einteilung}
+Die Aufgabenverteilung erfolgte unter Berücksichtigung der individuellen Stärken der Mitglieder sowie der Notwendigkeit, dass zusammenarbeitende Personen ungestört arbeiten können.  
+
+\begin{itemize}
+    \item \textbf{Teamleiter:} Christopher Schieszler
+\end{itemize}
+
+\subsection{Rollen und Verantwortlichkeiten}
+\begin{table}[h!]
+\centering
+\begin{tabular}{l l}
+\hline
+\textbf{Aufgabe} & \textbf{Zuständige Mitglieder} \\
+\hline
+Software & Nicolas Scherrer \\
+Elektrostimulationsgerät & Nicolas Scherrer \\
+Hardware & Noah Hainisch,Adam Bukovjan \\
+Platine & Noah Hainisch,Adam Bukovjan \\
+Design &  Daniel Schranzhofer, Sonja Schönauer\\
+Protokoll & Daniel Schranzhofer, Sonja Schönauer \\
+\hline
+\end{tabular}
+\caption{Rollen und Verantwortlichkeiten}
+\end{table}
+\newpage
+\section {Zeitplan}
+\begin{figure}[H]
+    \includegraphics[width=\textwidth,height=0.5\textheight,keepaspectratio]{zeitplan.png}
+    \caption{Zeitplan}
+\end{figure}
+Erstellt am 26.02.2026......
+\newpage
+\section{Projektbeschreibung}
+
+Im Rahmen dieses Projekts wird eine Prototyp-Vorrichtung zur Unterstützung der Armbeugung entwickelt. Ziel ist es, die Mobilisation sowie das Training der Armmotorik, insbesondere im Bereich der Rehabilitation, zu verbessern.
+
+Der Unterarm wird in eine ergonomisch angepasste Unterarmschale eingelegt, während der Oberarm durch eine separate Schale fixiert wird. Durch diese Konstruktion wird eine definierte und reproduzierbare Ausgangsposition des Arms gewährleistet.
+
+Zur Unterstützung der Bewegung wird eine gezielte Elektrostimulation der Armmuskulatur eingesetzt. Die Elektroden werden am Oberarm positioniert und aktivieren den Muskel, wodurch eine Beugung im Ellenbogengelenk erzeugt wird.
+
+Zusätzlich ist am Handgelenk ein mechanisches System angebracht: Ein Seil ist mit einem Motor bzw. Gewichtssystem gekoppelt und erzeugt eine einstellbare Gegenkraft. Dadurch kann die Bewegung aktiv unterstützt oder erschwert werden.
+
+Das System kann in verschiedenen Betriebsmodi verwendet werden:
+\begin{itemize}
+\item Betrieb mit Elektrostimulation
+\item Betrieb ohne Elektrostimulation (rein mechanisches Training)
+\item Hybridbetrieb (Kombination aus beiden Systemen)
+\end{itemize}
+
+Ein maximales Gegengewicht von bis zu 3 kg ermöglicht eine individuelle Anpassung der Trainingsintensität.
+
+\subsection{Fixierung des Armes}
+
+Für eine stabile Bewegungsausführung wird der Arm durch ein Schalen-System fixiert:
+
+\begin{itemize}
+\item \textbf{Obere Schale:}  
+Fixiert den Oberarm und sorgt für eine stabile Lagerung während der Bewegung.
+
+\item \textbf{Untere Schale:}  
+Der Unterarm liegt in dieser Schale auf. Sie dient der Führung und stellt eine konstante Ausgangsposition sicher. Zusätzlich ist in dieser Schale die Elektronik integriert.
+
+\item \textbf{Schalenverbindung:}  
+Ein mechanisches Verbindungselement koppelt Ober- und Unterschale miteinander und ermöglicht eine geführte Bewegung des Arms.
+
+\item \textbf{Handgelenk:}  
+Am Handgelenk ist ein Band befestigt, an dem ein Seil angebracht ist. Dieses ist mit einem Gewichtssystem verbunden und erzeugt eine definierte Gegenkraft.
+
+\item \textbf{Fixierung:}  
+Die Befestigung der Schalen erfolgt mittels Klettverschlüssen, wodurch eine einfache Handhabung sowie Anpassung an unterschiedliche Armgrößen ermöglicht wird.
+\end{itemize}
+
+\subsection{Elektrostimulation}
+
+Die Elektrostimulation dient der gezielten Aktivierung der Armmuskulatur. Durch die elektrische Impulse werden Nerven stimuliert, was zu einer Muskelkontraktion führt.
+
+Dadurch wird die Armbeugung aktiv unterstützt bzw. eingeleitet. Die Intensität und Frequenz der Impulse können individuell angepasst werden, um eine optimale und sichere Anwendung zu gewährleisten.
+
+\subsection{Trainingsstufen}
+
+Zur Anpassung an unterschiedliche Trainings- und Rehabilitationszustände verfügt das System über ein dreistufiges Trainingskonzept:
+
+\begin{itemize}
+\item \textbf{Leicht:}  
+Geringe Intensität – geeignet für Einsteiger oder schwache Muskulatur.
+
+\item \textbf{Mittel:}  
+Moderate Itensität – für fortgeschrittenes Training.
+
+\item \textbf{Schwer:}  
+Hohe Intensität bzw. maximale Gegenkraft (bis 3 kg) – für intensives Training.
+\end{itemize}
+
+Die Auswahl der Stufen ermöglicht eine individuelle Anpassung an den Benutzer sowie eine kontinuierliche Steigerung der Trainingsbelastung.
+
+\section{Spezifikationen}
+
+Die folgenden Spezifikationen definieren die technischen und mechanischen Anforderungen des Systems:
+\subsection{Elektrische Spezifikationen}
+\begin{itemize}
+\item 3 Trainingsstufen 
+\end{itemize}
+
+\subsection{Mechanische Spezifikationen}
+\begin{itemize}
+\item Maximales Gegengewicht: 3 kg
+\item Befestigungssystem: Klettverschluss
+\item Aufbau: Unterarm- und Oberarmschale
+\item Einstellbare Armposition durch Schalenverbindung
+\end{itemize}
+
+\newpage
+\section{Anleitung}
+
+Zur sicheren und effektiven Nutzung des Elektrostimulationsgeräts sind folgende Schritte einzuhalten:
+
+\begin{enumerate}
+\item \textbf{Vorbereitung der Elektroden:}  
+Die Haut am Oberarm sollte sauber und fettfrei sein, um einen guten elektrischen Kontakt zu gewährleisten. Anschließend werden die Elektroden über dem Zielmuskel,wie in Abb.... positioniert.
+
+\item \textbf{Positionierung des Gehäuses:}  
+Die Elektronikeinheit ist in einer speziell angefertigten Unterarmschale integriert und wird am Unterarm positioniert. Zur Stabilisierung des gesamten Systems wird zusätzlich eine Oberarmschale verwendet, die der korrekten Ausrichtung des Arms dient.  
+
+Beide Schalen sind ergonomisch angepasst und werden mittels Klettverschluss sicher am Arm fixiert, wodurch eine stabile und reproduzierbare Anwendung gewährleistet wird, siehe Abb...
+
+\item \textbf{Inbetriebnahme:}  
+Das Gerät wird eingeschaltet. Vor der Aktivierung der Stimulation ist sicherzustellen, dass die Intensität auf den Minimalwert eingestellt ist.
+
+\item \textbf{Einstellung der Stimulationsparameter:}  
+Die gewünschte Frequenz sowie Pulsweite werden eingestellt. Anschließend wird die Intensität langsam erhöht, bis eine sichtbare Muskelkontraktion erfolgt.
+
+\item \textbf{Beobachtung und Anpassung:}  
+Die Bewegung des Unterarms wird beobachtet. Die Parameter können feinjustiert werden, um eine kontrollierte und angenehme Bewegung zu erzielen.
+
+\item \textbf{Abschalten des Geräts:}  
+Nach der Anwendung wird die Intensität zuerst reduziert und anschließend das Gerät ausgeschaltet.
+
+\item \textbf{Entfernen der Elektroden:}  
+Die Elektroden werden vorsichtig vom Oberarm entfernt und gereinigt bzw. ordnungsgemäß gelagert.
+\end{enumerate}
+
+\textbf{Sicherheitshinweise:}
+\begin{itemize}
+\item Die maximale Stromstärke darf nicht überschritten werden.
+\item Das Gerät darf nicht bei Herzproblemen oder mit implantierten Geräten (z.B. Herzschrittmacher) verwendet werden.
+\item Die Anwendung darf nur an intakter Haut erfolgen.
+\item Bei Schmerzen ist die Stimulation sofort abzubrechen.
+\end{itemize}
+\newpage
+\section{Beschreibung der Software}
+\subsection{Code für Elektrostimulationsgerät}
+asdfghj
+\newpage
+\section {Beschreibung der Hardware}
+
+\subsection{Unterarm-Schale}
+
+Die Unterarm-Schale dient als Träger für die gesamte Elektronik. In ihr befinden sich alle wichtigen Komponenten wie Mikrocontroller, Verkabelung,Motor und Stromversorgung.
+
+Zusätzlich sorgt sie für:
+\begin{itemize}
+\item Schutz der Elektronik
+\item stabile Positionierung am Arm
+\item einfache Handhabung
+\end{itemize}
+Zur Darstellung der Abmessungen der Unterarm-Schale sind die relevanten Maße in der folgenden Tabelle zusammengefasst.
+\newpage
+\subsubsection{Abmessungen}
+\begin{figure}[H]
+\centering
+\includegraphics[width=1.1\textwidth]{unterarm_unten.png}
+\caption{Unterarm-Schale von unten}
+\end{figure}
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{l X c}
+\toprule
+\textbf{Parameter} & \textbf{Beschreibung} & \textbf{Wert [mm]} \\
+\midrule
+
+\textcolor{myred}{Breite} & Gesamtbreite & 130 \\
+
+\textcolor{myblack}{Loch} & Durchmesser des Lochs & 6 \\
+
+\textcolor{myblue}{Loch} & Position / Abstand 1 & 242 \\
+
+\textcolor{mygreen}{Loch} & Position / Abstand 2 & 252 \\
+
+\textcolor{mygreen}{Loch} & Position / Abstand 3 & 62 \\
+
+\bottomrule
+\end{tabularx}
+\caption{Geometrische Abmessungen}
+\label{tab:lochdaten}
+\end{table}
+\newpage
+\begin{figure}[H]
+\centering
+\includegraphics[width=1.1\textwidth]{unterarm_seite.png}
+\caption{Unterarm-Schale von der Seite}
+\end{figure}
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{l X c}
+\toprule
+\textbf{Parameter} & \textbf{Beschreibung} & \textbf{Wert [mm]} \\
+\midrule
+
+\textcolor{myred}{Höhe} & Gesamthöhe Bauteil & 65 \\
+\textcolor{myred}{Länge} & Gesamtlänge Bauteil & 500 \\
+
+\textcolor{mygreen}{Höhe} & Teilhöhe 1 & 40 \\
+\textcolor{mygreen}{Länge} & Teilsegmentlänge & 106.623 \\
+
+\textcolor{myyellow}{6-Polygon} & Radius (Sechseck-Approx.) & 4.5 \\
+
+\textcolor{myblue}{Höhe} & Verbindungshöhe & 15 \\
+\textcolor{myblue}{Länge} & Restlänge / Abschlusssegment & 158.377 \\
+
+\bottomrule
+\end{tabularx}
+\caption{Geometrische Abmessungen mit Funktionszuordnung}
+\label{tab:farbstruktur}
+\end{table}
+
+\subsubsection{Fusion-Design}
+
+\newpage
+\subsection{Oberarm-Schale}
+
+Die Oberarmschale wurde primär mit dem Ziel der Stabilisierung des Arms während der Bewegung entwickelt. Dabei stand nicht die aktive Bewegung, sondern eine sichere und reproduzierbare Fixierung des Oberarms im Vordergrund.
+
+Die Dimensionierung der Schale wurde bewusst großzügig gewählt, um eine komfortable Nutzung für unterschiedliche Armgrößen zu ermöglichen. Dadurch wird sichergestellt, dass die Schale nicht einschränkend wirkt und gleichzeitig eine stabile Führung des Arms gewährleistet ist.
+
+Zur Anpassung an verschiedene Benutzergrößen wurde die Oberarmschale mit Klettverschlüssen im oberen und unteren Bereich ausgestattet. Insgesamt sind sechs Schlitze in der Schale vorgesehen, durch welche die Klettverschlüsse geführt werden. Diese ermöglichen eine flexible Einstellung der Spannung und sorgen dafür, dass die Schale sicher am Arm fixiert werden kann, ohne Druckstellen zu verursachen.
+
+Ein zusätzlicher konstruktiver Bestandteil der Oberarmschale ist der Bereich zur Scharnierbefestigung. Dieser ist speziell ausgelegt, um die mechanische Verbindung zwischen Ober- und Unterarmschale aufzunehmen und eine stabile, geführte Bewegung des gesamten Systems zu ermöglichen.
+
+Insgesamt wurde das Design so ausgelegt, dass eine einfache Handhabung, hohe Stabilität und eine schnelle Anpassbarkeit kombiniert werden. Zur genaueren Beschreibung der konstruktiven Auslegung der Oberarmschale sind die wesentlichen Abmessungen und Designparameter in der folgenden Tabelle zusammengefasst. Die in der Konstruktion verwendeten Abmessungen und Parameter der Oberarmschale sind in der nachfolgenden Tabelle übersichtlich dargestellt.\newpage
+\subsubsection{Abmessungen}
+\begin{figure}[H]
+\centering
+\includegraphics[width=1.1\textwidth]{Oberarm_oben.png}
+\caption{Oberarm-Schale von der Seite}
+\end{figure}
+Zur Übersicht der Abmessungen sind die folgenden geometrischen Parameter dargestellt.
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{l X c}
+\toprule
+\textbf{Bereich} & \textbf{Beschreibung} & \textbf{Wert [mm]} \\
+\midrule
+
+\textcolor{mygreen}{Gesamtbauteil} & Gesamtlänge der Konstruktion & 197.302 \\
+\textcolor{mygreen}{Gesamtbauteil} & Gesamthöhe der Konstruktion & 65 \\
+
+\textcolor{myblue}{Klettverschluss-Schlitze} & Länge eines Schlitzes für Klettverschluss & 25 \\
+\textcolor{myblue}{Klettverschluss-Schlitze} & Höhe eines Schlitzes & 7.297 \\
+
+\textcolor{myred}{Scharnierbefestigung} & Länge der Scharnieraufnahme & 12 \\
+\textcolor{myred}{Scharnierbefestigung} & Länge der Scharnieraufnahme & 24.5 \\
+
+\bottomrule
+\end{tabularx}
+\caption{Geometrische Abmessungen nach Funktionsbereichen}
+\label{tab:struktur_abmessungen}
+\end{table}
+\newpage
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{Oberarm_obenecht.png}
+\caption{Scharnierbefestigung der Oberarm-Schale}
+\end{figure}
+
+Zur Übersicht der Abmessungen sind die folgenden geometrischen Parameter dargestellt.
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{l X c}
+\toprule
+\textbf{Parameter} & \textbf{Beschreibung} & \textbf{Wert [mm]} \\
+\midrule
+
+\textcolor{myred}{Länge} & Scharnierbreite & 22.8 \\
+\textcolor{mygreen}{Länge} & Detailkante / kleine Struktur & 7.6 \\
+\textcolor{myblue}{Länge} & Abstand & 106.2 \\
+\textcolor{mypurple}{Tiefe} & Einbautiefe / konstruktive Tiefe & 14.5 \\
+
+\bottomrule
+\end{tabularx}
+\caption{Geometrische Abmessungen für die Scharnierbefestigung}
+\label{tab:zusatz_abmessungen}
+\end{table}
+\newpage
+\subsubsection{Fusion-Design}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{Obere-Schale.png}
+\caption{Fusion-Design der Oberarm-Schale von oben}
+\end{figure}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{Obere-Schale_unten.png}
+\caption{Fusion-Design der Oberarm-Schale von unten}
+\end{figure}
+\subsection{Verbindungsstück}
+
+\newpage
+\subsection {Platine}
+\subsubsection {Schaltplan }
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{schaltplan_convert.png}
+\caption{DC-DC-Abwärtswandler 12\,V auf 3{,}3\,V}
+\end{figure}
+
+Die dargestellte Schaltung realisiert einen DC-DC-Abwärtswandler (Buck-Converter) zur Umwandlung einer Eingangsspannung von 12\,V auf eine stabile Ausgangsspannung von 3{,}3\,V. Als zentrales Bauteil wird der Schaltregler \textit{LM2596S-3.3} verwendet.
+
+Der Eingang der Schaltung ist mit \textit{VIN} des Reglers verbunden. Der Elektrolytkondensator \textit{C13} mit einer Kapazität von 470\,$\mu$F dient zur Glättung der Eingangsspannung und reduziert Spannungsschwankungen sowie Störungen.
+
+Der LM2596 arbeitet nach dem Prinzip eines Schaltreglers. Dabei wird die Eingangsspannung mit hoher Frequenz ein- und ausgeschaltet. Die dabei entstehenden Spannungspulse werden durch die Spule \textit{L2} (68\,$\mu$H) und den Ausgangskondensator \textit{C15} (220\,$\mu$F) geglättet. Dadurch entsteht eine stabile Gleichspannung von 3{,}3\,V am Ausgang \textit{VOUT\_regulator}.
+
+Die Schottky-Diode \textit{D1} (MBRS340T3G) dient als Freilaufdiode. Sie ermöglicht den Stromfluss während der Ausschaltphase des Reglers und verbessert gleichzeitig den Wirkungsgrad der Schaltung aufgrund ihrer geringen Durchlassspannung.
+
+Die Widerstände \textit{R12} und \textit{R13} bilden gemeinsam mit dem Kondensator \textit{C14} ein Rückkopplungsnetzwerk am Feedback-Pin (\textit{FB}) des Reglers. Dieses Netzwerk dient der Stabilisierung und Regelung der Ausgangsspannung.
+
+Zusätzlich wurden Testpunkte (\textit{TP22}, \textit{TP23}, \textit{TP24}) integriert, um wichtige Spannungen und Signale während der Inbetriebnahme und Fehlersuche einfach messen zu können.
+
+Durch die Verwendung eines Schaltreglers wird ein hoher Wirkungsgrad erreicht, wodurch die Verlustleistung und Wärmeentwicklung im Vergleich zu linearen Spannungsreglern deutlich reduziert werden.
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.6\textwidth]{schaltplan_buchse.png}
+\caption{Buchse für Spannungsversorgung}
+\end{figure}
+Zur externen Spannungsversorgung der Schaltung wird eine DC-Buchse verwendet. Über diese Buchse kann die Versorgungsspannung sicher und einfach mit dem System verbunden werden.
+
+Die Buchse dient als Eingang für die Betriebsspannung und leitet diese an den Spannungsregler weiter, welcher die benötigten Versorgungsspannungen für die einzelnen Komponenten erzeugt. Durch die standardisierte Anschlussmöglichkeit wird eine einfache Inbetriebnahme sowie ein schneller Austausch der Spannungsquelle ermöglicht.
+
+Zusätzlich sorgt die Buchse für eine stabile mechanische Verbindung und gewährleistet eine zuverlässige Stromversorgung der gesamten Schaltung.
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{schaltplan_1.png}
+\caption{...}
+\end{figure}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{schaltplan_2.png}
+\caption{...}
+\end{figure}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{schaltplan_µC.png}
+\caption{...}
+\end{figure}
+\subsubsection {PCB-Layout}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{platine_layout.png}
+\caption{Layout der Platine}
+\end{figure}
+\newpage
+\section {Erfolge und Herausforderungen}
+\section{Zusammenfassung vom Endprodukt}
+
+bg
+
+\end{document}

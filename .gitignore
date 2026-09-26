@@ -1,0 +1,7 @@
+Installationen.txt
+main.aux
+main.fdb_latexmk
+main.log
+main.synctex(busy)
+build/
+.vscode/
